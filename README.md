@@ -3,7 +3,7 @@
     Various exercises and topics that need to be regularly recalled.
     Sorting is carried out by branches
 
-# 000 - basic
+# 000 - base
     - w/o components w/o styles
     - CRUD (create: blog form, read: list, update: likes, delete: delete)
 
