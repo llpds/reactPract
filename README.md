@@ -3,7 +3,7 @@
 Various exercises and topics that need to be regularly recalled.
 Sorting is carried out by branches
 
-## 000 - filter
+## 010 - filter
 - w/o components w/o styles
 - filter (sort by title/body, search by title)
 
