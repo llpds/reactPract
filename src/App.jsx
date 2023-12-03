@@ -8,8 +8,12 @@ const [blogs, setBlogs] = useState([
 ])
 const [title, setTitle] = useState('')
 const [body, setBody] = useState('')
+const [sortBy, setSortBy] = useState('title')
+const [search, setSearch] = useState('')
 
+const sortedBlogs = [...blogs].sort((a,b) => a[sortBy].localeCompare(b[sortBy]))
 
+const filteredSortedBlogs = [...sortedBlogs].filter(b => b.title.includes(search))
 
 const saveBlog = (e) => {
   e.preventDefault()
@@ -23,7 +27,6 @@ const saveBlog = (e) => {
   setTitle('')
   setBody('')
 }
-
 
 const deleteBlog = (b) => {
   setBlogs(blogs.filter(bl => bl.id !== b.id))
@@ -52,9 +55,24 @@ const like = (b) => {
         />
         <button type="submit" onClick={saveBlog}>Save</button>
       </form>
+
+      <h3>Filter:</h3>
+      <select id="sortBy" onChange = {(e)=> setSortBy(e.target.value)}>
+        <option value="sortTitle" disabled>sort by:</option>
+        <option value="title">title</option>
+        <option value="body">body</option>
+      </select>
+
+      <input
+        type="text"
+        placeholder="search"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
       <h3>Blog list:</h3>
       <ul>
-        {blogs.map((b,i)=>
+        {filteredSortedBlogs.map((b,i)=>
           <li key={b.id}>
             {i+1}. title: {b.title} body: {b.body} likes: {b.likes} 
             <button onClick={() => like(b)}>like</button>
