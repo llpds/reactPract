@@ -1,13 +1,17 @@
-### spaced repetition of the react
+# [Head] (link)
+
+    lorem ipsum
+
+# spaced repetition of the react
 
     Various exercises and topics that need to be regularly recalled.
     Sorting is carried out by branches
 
-# 000 - base
+## 000 - base
     - w/o components w/o styles
     - CRUD (create: blog form, read: list, update: likes, delete: delete)
 
-## Hooks:
+### Hooks
     
         useState(https://react.dev/reference/react/useState)
 
@@ -27,7 +31,7 @@
         }
         ```
 
-## Higher-Order Functions:
+### Higher-Order Functions
         - .map() (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
 
 
