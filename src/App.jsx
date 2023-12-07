@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import BlogList from './components/BlogList'
+import BlogForm from './components/BlogForm'
 
 function App() {
 const [blogs, setBlogs] = useState([
@@ -6,22 +8,10 @@ const [blogs, setBlogs] = useState([
   {id:2, title: 'title2', body: 'content',  likes: 3},
   {id:3, title: 'title3', body: 'lorem ipsum', likes: 17},
 ])
-const [title, setTitle] = useState('')
-const [body, setBody] = useState('')
 
 
-
-const saveBlog = (e) => {
-  e.preventDefault()
-  const newBlog = {
-    id: Date.now(),
-    title: title,
-    body: body,
-    likes: 0
-  }
+const saveBlog = (newBlog) => {
   setBlogs([...blogs, newBlog])
-  setTitle('')
-  setBody('')
 }
 
 
@@ -36,32 +26,8 @@ const like = (b) => {
 
   return (
     <>
-      <h3>Blog form:</h3>
-      <form action="">
-        <input 
-          type="text"
-          placeholder="title"
-          value = {title}
-          onChange = {(e)=> setTitle(e.target.value)}
-        />
-        <input 
-          type="text"
-          placeholder="body"
-          value = {body}
-          onChange = {(e)=> setBody(e.target.value)}
-        />
-        <button type="submit" onClick={saveBlog}>Save</button>
-      </form>
-      <h3>Blog list:</h3>
-      <ul>
-        {blogs.map((b,i)=>
-          <li key={b.id}>
-            {i+1}. title: {b.title} body: {b.body} likes: {b.likes} 
-            <button onClick={() => like(b)}>like</button>
-            <button onClick={() => deleteBlog(b)}>delete</button>
-          </li>
-        )}
-      </ul>
+      <BlogForm saveBlog = {saveBlog}/>
+      <BlogList blogs = {blogs} like = {like} deleteBlog={deleteBlog}/>
     </>
   )
 }

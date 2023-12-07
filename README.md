@@ -3,8 +3,8 @@
 Various exercises and topics that need to be regularly recalled.
 Sorting is carried out by branches
 
-## 000 - base
-- w/o components w/o styles
+## 001 - base
+- with components w/o styles
 - CRUD (create: blog form, read: list, update: likes, delete: delete)
 
 ### Hooks
