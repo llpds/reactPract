@@ -5,6 +5,7 @@ Sorting is carried out by branches
 
 ## 015 - form object
 - newBlog object instead title and body fields
+- filter object instead search and sortBy fields
 
 ### Expression
 

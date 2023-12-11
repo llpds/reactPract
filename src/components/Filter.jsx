@@ -1,10 +1,10 @@
 import BlogInput from "./BlogInput"
 
-const Filter = ({sortBy, setSortBy, search, setSearch}) => {
+const Filter = ({filter, setFilter}) => {
   return (
     <div>
       <h3>Filter:</h3>
-      <select id="sortBy" onChange = {(e)=> setSortBy(e.target.value)}>
+      <select id="sortBy" value={filter.sortBy} onChange = {(e)=> setFilter({...filter, sortBy: e.target.value})}>
         <option value="sortTitle" disabled>sort by:</option>
         <option value="title">title</option>
         <option value="body">body</option>
@@ -12,8 +12,8 @@ const Filter = ({sortBy, setSortBy, search, setSearch}) => {
 
       <BlogInput
         placeholder="search in title"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        value={filter.search}
+        onChange={(e) => setFilter({...filter, search:e.target.value})}
       />
     </div>
   )

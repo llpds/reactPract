@@ -9,13 +9,13 @@ const [blogs, setBlogs] = useState([
   {id:2, title: 'title2', body: 'content',  likes: 3},
   {id:3, title: 'title3', body: 'lorem ipsum', likes: 17},
 ])
-const [sortBy, setSortBy] = useState('title')
-const [search, setSearch] = useState('')
+
+const [filter, setFilter] = useState({sortBy:'title', search:''})
 
 
-const sortedBlogs = [...blogs].sort((a,b) => a[sortBy].localeCompare(b[sortBy]))
+const sortedBlogs = [...blogs].sort((a,b) => a[filter.sortBy].localeCompare(b[filter.sortBy]))
 
-const filteredSortedBlogs = [...sortedBlogs].filter(b => b.title.includes(search))
+const filteredSortedBlogs = [...sortedBlogs].filter(b => b.title.includes(filter.search))
 
 const saveBlog = (newBlog) => {
   setBlogs([...blogs, newBlog])
@@ -34,7 +34,7 @@ const like = (b) => {
   return (
     <>
       <BlogForm saveBlog = {saveBlog}/>
-      <Filter sortBy={sortBy} setSortBy={setSortBy} search={search} setSearch={setSearch}/>
+      <Filter filter={filter} setFilter={setFilter} />
       <BlogList blogs = {filteredSortedBlogs} like = {like} deleteBlog={deleteBlog}/>
     </>
   )
