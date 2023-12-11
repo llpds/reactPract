@@ -10,6 +10,8 @@ Sorting is carried out by branches
 An input form element whose value is controlled by React in this way is called a “controlled component”.
 
 ### Hooks
+
+Hooks are used ONLY at the top level of nesting (they do not work in loops and conditions)
     
 useState(https://react.dev/reference/react/useState)
 
