@@ -3,27 +3,14 @@
 Various exercises and topics that need to be regularly recalled.
 Sorting is carried out by branches
 
-## 011 - filter
-- with components w/o styles
-- filter (sort by title/body, search by title)
+## 015 - form object
+- newBlog object instead title and body fields
 
-### Hooks
+### Expression
+
+  - destructuring assignment
     
-useState(https://react.dev/reference/react/useState)
+        [a, b, ...rest] = [10, 20, 30, 40, 5    0];
 
-    import { useState } from 'react'
-
-    function App() {
-        const [name, setName] = useState('')
-
-        setName('Couper') 
-
-        return(
-            <>
-                {name}
-            </>
-        )    
-    }
-
-### Higher-Order Functions
-- .sort() (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+        console.log(rest);
+        // Expected output: Array [30, 40, 50]

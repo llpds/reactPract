@@ -2,21 +2,19 @@ import BlogInput from './BlogInput'
 import { useState } from 'react'
 
 const BlogForm = ({saveBlog}) => {
-  const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
+  const [newBlog, setNewBlog] = useState({title:'',body:''})
 
 
   const submitBlog = (e) => {
     e.preventDefault()
-    const newBlog = {
+    const preparedBlog = {
+      ...newBlog,
       id: Date.now(),
-      title: title,
-      body: body,
       likes: 0
     }
-      saveBlog(newBlog)
-      setTitle('')
-      setBody('')
+
+      saveBlog(preparedBlog)
+      setNewBlog({title:'',body:''})
     }
 
   return (
@@ -25,13 +23,13 @@ const BlogForm = ({saveBlog}) => {
       <form action="">
         <BlogInput 
           placeholder="title"
-          value = {title}
-          onChange = {(e)=> setTitle(e.target.value)}
+          value = {newBlog.title}
+          onChange = {(e)=> setNewBlog({...newBlog, title:e.target.value})}
         />
         <BlogInput 
           placeholder="body"
-          value = {body}
-          onChange = {(e)=> setBody(e.target.value)}
+          value = {newBlog.body}
+          onChange = {(e)=> setNewBlog({...newBlog, body:e.target.value})}
         />
         <button type="submit" onClick={submitBlog}>Save</button>
       </form>
