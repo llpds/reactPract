@@ -7,6 +7,8 @@ Sorting is carried out by branches
 - w/o components w/o styles
 - CRUD (create: blog form, read: list, update: likes, delete: delete)
 
+An input form element whose value is controlled by React in this way is called a “controlled component”.
+
 ### Hooks
     
 useState(https://react.dev/reference/react/useState)
